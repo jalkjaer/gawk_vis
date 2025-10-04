@@ -1,4 +1,3 @@
-
 cc_library(
     name = "gawk_vis",
     srcs = ["gawk_vis.c"],

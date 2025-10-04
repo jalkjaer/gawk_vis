@@ -1,20 +1,16 @@
-# Gawk extension for some approximation of vis encoding
-
-Gawk shared library extension for vis en/decoding in a form that should be work for encoding entries in bsd mtree 
-files.
+# Gawk extension for vis de/encoding of strings
 
 Encodes non-printable, multibyte chars and a select set of printable chars as \ddd octal numbers
 I.e. whitespace is encoded as the string `\040` 
 
-The functions available are
-
+The functions available are:
 * `vis::enc(input:str, chars_to_encode: Optional[str]) -> str `
 * `vis::dec(input:str) -> str `
 
-The optional second argument, overrides the default set of printable characters
+The optional second argument to vis:enc, overrides the default set of printable characters
 that will be encoded.
 
-The default set is (see https://man.netbsd.org/vis.3 ) 
+The default set is (see also https://man.netbsd.org/vis.3 ) 
 ```
 *? [#';"&<>()|]$!^~`\ 
 ```
@@ -49,8 +45,7 @@ BEGIN {
 The target `//:libgawk_vis.so` is a fileset with just the extension
  
 ## Building
-If you just want the shared lib:
-run 
+If you just want the shared lib, run: 
 ```bash
 bazel build //:gawk_vis
 ```
