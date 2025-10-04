@@ -1,5 +1,5 @@
 /*
-* gawk_vis: bsd vis encoding and decoding for gawk
+* gawk_vis: bsd vis de/encoding for gawk
 * Copyright (C) 2013  J Alkjaer <jalkjaer@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -15,10 +15,6 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-/*
- * gaws_vis.c - Gawk extension library for bsd vis encoding and decoding
- */
 
 
 #ifdef HAVE_CONFIG_H
