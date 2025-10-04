@@ -1,0 +1,16 @@
+Patch gawk bzlmod repo to expose gawkapi.h
+--- /dev/null
++++ BUILD.bazel
+@@ -151,6 +151,12 @@
+     ],
+ )
+ 
++cc_library(
++    name="gawkapi",
++    hdrs = ["gawkapi.h"],
++    visibility = ["//visibility:public"],
++)
++
+ cc_binary(
+     name = "gawk",
+     srcs = ["main.c"],

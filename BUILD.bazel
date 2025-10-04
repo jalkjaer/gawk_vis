@@ -1,0 +1,42 @@
+
+cc_library(
+    name = "gawk_vis",
+    srcs = ["gawk_vis.c"],
+    copts = ["-w"],
+    deps = ["@gawk//:gawkapi"]
+)
+
+filegroup(
+    name='libgawk_vis.so',
+    srcs=[':gawk_vis'],
+    output_group = 'dynamic_library',
+    visibility=["//visibility:public"]
+)
+
+sh_binary(
+    name = "visgawk",
+    srcs = [":visgawk.sh"],
+    env = {
+        "GAWK" : "$(location @gawk)",
+        "LIB" : "$(location :libgawk_vis.so)",
+    },
+    data = [
+        "@gawk",
+        ":libgawk_vis.so",
+    ],
+)
+
+sh_test(
+    name = "test",
+    srcs = [":visgawk.sh"],
+    args = ["-f", "$(location :test.awk)", "$(location :test.awk)"],
+    env = {
+        "GAWK" : "$(location @gawk)",
+        "LIB" : "$(location :libgawk_vis.so)",
+    },
+    data = [
+        "@gawk",
+        ":libgawk_vis.so",
+        ":test.awk"
+    ],
+)

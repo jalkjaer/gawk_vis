@@ -1,0 +1,8 @@
+module(name = "gawk-vis")
+bazel_dep(name = "bazel_skylib", version = "1.8.2")
+bazel_dep(name = "gawk", version = "5.3.2.bcr.2")
+single_version_override(
+    module_name = "gawk",
+    patches = ["//:gawk_repo_build.patch"],
+)
+
