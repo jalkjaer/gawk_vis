@@ -200,7 +200,7 @@ vis_decode_string(const char* src, size_t src_len, char** out_buf, size_t* out_l
  * \return          Pointer to result value
  */
 static awk_value_t*
-vis_encode(int nargs, awk_value_t* result) {
+vis_encode(int nargs, awk_value_t* result, struct awk_ext_func* unused) {
 	assert(result != NULL);
 
 	if (nargs < 1) {
@@ -256,7 +256,7 @@ vis_encode(int nargs, awk_value_t* result) {
  * \return          Pointer to result value
  */
 static awk_value_t*
-vis_decode(int nargs, awk_value_t* result) {
+vis_decode(int nargs, awk_value_t* result, struct awk_ext_func* unused) {
 	assert(result != NULL);
 
 	if (nargs < 1) {
